@@ -20,7 +20,7 @@ This is still an **ongoing project**, and the Parkinson’s dataset is currently
 
 ## Why This Project
 
-A lot of Parkinson’s research focuses on motor symptoms. That makes sense clinically, but it doesn’t fully capture how the disease affects daily life.
+A lot of Parkinson’s research focuses on motor symptoms. Which is most accurate clinically, but my objective is to see the day-to-day patterns in conversations based on different times and physical states.
 
 Something I found interesting is that conversation itself can be effortful—mentally and physically. So instead of trying to measure Parkinson’s directly, I wanted to look at:
 
@@ -191,7 +191,7 @@ Because of that, this project is more **exploratory than definitive**.
 If I were to take this further, I’d want to add:
 
 * Self-reported fatigue or energy levels
-* Medication timing
+* Medication timing (if applicable)
 * Speech or voice data
 * More participants
 
