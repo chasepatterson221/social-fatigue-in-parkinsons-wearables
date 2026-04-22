@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project looks at how Parkinson’s Disease (PD) might affect everyday social interaction. Instead of focusing on clinical symptoms like tremor or rigidity, I’m trying to understand something more practical:
+This project looks at how Parkinson’s Disease (PD) might affect everyday social interaction. Instead of focusing on clinical symptoms like tremor or rigidity, I’m trying a different approach with the data that can be collected with SocialBit:
 
 **What does social engagement actually look like day-to-day for someone with Parkinson’s?**
 
