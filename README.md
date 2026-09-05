@@ -2,13 +2,17 @@
 
 ## Overview
 
-This project looks at how Parkinson’s Disease (PD) might affect everyday social interaction. Instead of focusing on clinical symptoms like tremor or rigidity, I’m trying a different approach with the data that can be collected with SocialBit:
+This project explored how **Parkinson’s disease might affect everyday social interaction patterns** using wearable sensor data.
 
-**What does social engagement actually look like day-to-day for someone with Parkinson’s?**
+Instead of focusing directly on clinical symptoms such as tremor or rigidity, I wanted to examine a different aspect of day-to-day experience:
 
-To explore this, I’m using data from a SocialBit wearable device. The watch estimates when social interactions happen and tracks basic signals like movement and heart rate. The goal is to see whether interactions tend to be **continuous or broken up throughout the day**, and whether those patterns line up with changes in activity or physiological strain.
+> **What does social engagement actually look like throughout the day for someone with Parkinson’s disease?**
 
-This is still an **ongoing project**, and the Parkinson’s dataset is currently being collected.
+I used data from a **SocialBit wearable**, which estimates social interactions while also collecting signals such as heart rate, movement, and activity state.
+
+The original goal was to determine whether social interactions appeared **continuous or fragmented throughout the day**, and whether those patterns were associated with changes in activity or physiological measurements.
+
+The project ultimately became an exploration of both **behavioral patterns and the challenges of working with real-world wearable data**.
 
 ---
 
@@ -16,197 +20,269 @@ This is still an **ongoing project**, and the Parkinson’s dataset is currently
 
 **Are social interactions in a person with Parkinson’s more fragmented throughout the day, and do those patterns change depending on time of day or physical state?**
 
+This was treated as an exploratory question rather than a clinical hypothesis.
+
 ---
 
 ## Why This Project
 
-A lot of Parkinson’s research focuses on motor symptoms. Which is most accurate clinically, but my objective is to see the day-to-day patterns in conversations based on different times and physical states.
+Much of Parkinson’s research focuses on clinical and motor symptoms. I wanted to explore a more everyday aspect of the condition: **how social interaction may vary throughout the day**.
 
-Something I found interesting is that conversation itself can be effortful—mentally and physically. So instead of trying to measure Parkinson’s directly, I wanted to look at:
+Conversation and social engagement can involve both physical and cognitive effort, so I was interested in examining:
 
 * How often someone engages socially
 * How long those interactions last
-* Whether they drop off over time
+* Whether interactions become shorter or more fragmented
+* How social interaction relates to movement and heart rate
+* Whether patterns differ across the day
 
-This project is really about **behavior and experience**, not diagnosis.
-
----
-
-## How I’m Approaching It
-
-### Phase 1 — Baseline (My Data)
-
-Before analyzing Parkinson’s data, I wore the watch myself for about two weeks to get a sense of what “normal” looks like.
-
-This helped me understand:
-
-* What typical heart rate and movement patterns look like
-* How noisy the sensors are at rest
-* How the device behaves in everyday situations
-
-Here’s a quick summary of my baseline data:
-
-| Metric                      | Value    |
-| --------------------------- | -------- |
-| Avg Heart Rate              | 94.0 BPM |
-| Stationary Noise (Variance) | 0.669    |
-| HR / Movement Correlation   | 0.453    |
-| AI Confidence               | 38.7%    |
-
-This isn’t meant to be a clinical control—just a reference point so I’m not analyzing the PD data blindly.
+The project was intended to study **behavior and daily experience**, not diagnose Parkinson’s disease.
 
 ---
 
-### Phase 2 — Parkinson’s Data (In Progress)
+## How I Approached It
 
-Right now, I’m collecting about a month of data from a subject with Parkinson’s (my uncle).
+### Phase 1 — Baseline: My Data
 
-The goal is to compare patterns—not to diagnose anything—but to see how daily structure might differ.
+Before analyzing Parkinson’s data, I wore the SocialBit watch myself for approximately two weeks.
+
+The purpose was to establish a personal baseline and understand how the device behaved in normal everyday conditions.
+
+This helped me examine:
+
+* Typical heart rate and movement patterns
+* Sensor noise during relatively stationary periods
+* Relationships between movement and heart rate
+* How the device represented activity states
+* The overall structure and quality of the exported data
+
+### Baseline Results
+
+| Metric                      |    Value |
+| --------------------------- | -------: |
+| Average Heart Rate          | 94.0 BPM |
+| Stationary Noise (Variance) |    0.669 |
+| HR / Movement Correlation   |    0.453 |
+| AI Confidence               |    38.7% |
+
+This baseline was **not intended to function as a clinical control**. It was primarily a way to understand the measurement system before working with Parkinson’s data.
+
+---
+
+### Phase 2 — Parkinson’s Data
+
+I then collected approximately **one month of wearable data from a participant with Parkinson’s disease**.
+
+The initial analysis focused on comparing daily patterns in:
+
+* Social interaction
+* Heart rate
+* Movement
+* Activity/state predictions
+* Time-of-day behavior
+
+The objective was to identify potentially interesting patterns rather than make a clinical diagnosis or claim a causal relationship.
 
 ---
 
 ## What the Watch Actually Measures
 
-It’s important to be clear here: **SocialBit is not a Parkinson’s device.**
+An important limitation is that **SocialBit was not specifically designed for Parkinson’s patients**.
 
-It’s mainly designed to estimate:
+The device is primarily designed to estimate social interactions and provides additional sensor information including:
 
-* When social interactions happen
-* How long they last
-
-Along with that, it collects:
-
+* **Social interaction estimates**
 * **Heart rate**
-* **Movement (accelerometer)**
-* **Basic activity state predictions**
+* **Movement / accelerometer data**
+* **Activity state predictions**
 
-So everything I’m doing is built around those signals—not clinical metrics.
+Because these measurements were not designed to directly measure Parkinson’s symptoms, I treated them as **behavioral and physiological context rather than clinical measurements**.
 
 ---
 
-## How I’m Interpreting the Data
+## How I Interpreted the Data
 
-### Social Interaction (Main Focus)
+### Social Interaction
 
-This is the core of the project.
+Social interaction was the primary focus of the project.
 
-I’m looking at:
+I examined:
 
 * Total interaction time per day
-* Number of interaction “blocks”
-* Average length of interactions
+* Number of interaction blocks
+* Average interaction duration
 * Longest continuous interaction
 * Gaps between interactions
 
-The main idea is to measure **fragmentation**:
+The main concept was **interaction fragmentation**.
 
-* Are interactions long and continuous?
-* Or short and scattered throughout the day?
+I was interested in whether social engagement tended to occur as:
+
+**Longer, continuous interactions**
+
+versus
+
+**Shorter interactions separated by longer gaps**
 
 ---
 
 ### Heart Rate (`heartRate`)
 
-This is just supporting context.
+Heart rate was used as a supporting signal.
 
-For example:
+For example, elevated heart rate during relatively low movement could occur during conversation, stress, cognitive effort, or other situations.
 
-* If heart rate is elevated during low movement, it *might* reflect conversation, stress, or cognitive effort
+However, the data could not distinguish between these possibilities.
 
-But I’m being careful not to over-interpret this. It’s not a direct measure of fatigue or “speech effort.”
+Therefore, heart rate was **not treated as a direct measure of social effort, cognitive effort, or fatigue**.
 
 ---
 
 ### Movement (`accelMagnitude`)
 
-Used to understand how active the person is.
+Movement data were used to provide physical context around social interaction.
 
-Helps answer:
+This allowed me to examine questions such as:
 
-* Are interactions happening during movement or rest?
-* Does activity drop off during the day?
+* Are interactions occurring while the participant is moving or stationary?
+* Does activity appear to change around social interactions?
+* Does overall movement vary throughout the day?
 
 ---
 
 ### Stationary Variance (`accel_var`)
 
-This shows how much small movement is happening when someone is mostly still.
+I also examined small movement variability during relatively stationary periods.
 
-I initially thought about linking this to tremor, but realistically:
+I initially considered whether this could provide information related to Parkinsonian tremor.
 
-* It’s just a rough signal
-* Not a validated measure of Parkinson’s symptoms
-
-So I treat it cautiously.
+However, this signal was **not validated as a measure of tremor or Parkinson’s severity**, so I treated it only as a descriptive sensor measurement.
 
 ---
 
 ### State Predictions (`prediction`)
 
-These are the watch’s guesses about what state the person is in (active, inactive, etc.).
+The wearable also produced predictions about the participant's activity state.
 
-I mainly use this to:
-
-* Look at how the day is structured
-* See if activity happens in long stretches or short bursts
+I used these primarily to understand **how activity was distributed throughout the day**, rather than treating the predictions as clinical classifications.
 
 ---
 
-## What I’m Actually Trying to Find
+## Data Quality & Missing Data
 
-Instead of proving something clinical, I’m looking for patterns like:
+One of the most significant issues emerged during the analysis: **large portions of the Parkinson’s dataset were missing**.
 
-* Do interactions become shorter later in the day?
-* Are there more gaps between interactions over time?
-* Does activity level drop before or after social engagement?
-* Are there clear “fatigue-like” patterns in behavior (even if not clinically measured)?
+On some days, approximately **4–6 hours of data were absent**, particularly during the middle-to-later portions of the day.
+
+I examined the available files and data structure to determine why these gaps occurred.
+
+However, I could not establish with enough confidence whether the missing periods were caused by:
+
+* Device non-wear
+* Recording interruptions
+* Synchronization or export problems
+* Another source of missingness
+
+This distinction mattered because the missing periods could not simply be interpreted as periods with **zero social interaction or zero activity**.
+
+For example, if fewer interactions appeared later in the day, that could represent an actual behavioral change — or it could simply reflect missing observations during that period.
+
+Because the underlying reason for the missingness could not be established reliably, I decided **not to use those gaps to make strong conclusions about time-of-day behavior**.
 
 ---
 
-## Current Status
+## What I Was Able to Analyze
 
-* Baseline data: complete
-* Parkinson’s data: **still being collected**
-* Analysis: **ongoing / not finalized**
+Despite the missing data, the available dataset still allowed me to explore:
 
-I haven’t drawn conclusions yet. The goal right now is to explore the data and see what patterns actually show up.
+* The structure of wearable-derived social interaction data
+* Interaction duration and fragmentation
+* Heart-rate patterns
+* Movement patterns
+* Relationships between movement and heart rate
+* Activity-state predictions
+* Sensor variability
+* The practical challenges of working with continuously collected wearable data
+
+The baseline dataset also provided a useful reference for understanding how the wearable behaved under normal conditions.
+
+However, the incomplete Parkinson’s dataset meant that some of the original questions — particularly questions involving **full-day or time-of-day trends** — could not be answered reliably.
 
 ---
 
 ## Limitations
 
-There are a few obvious ones:
+There were several important limitations:
 
-* Only one Parkinson’s subject (case study)
-* No clinical ground truth (fatigue scores, symptom ratings, etc.)
-* The device isn’t designed specifically for Parkinson’s
-* A lot of interpretation is indirect
+* **Single-participant case study:** The Parkinson’s dataset represented one participant and cannot support population-level conclusions.
+* **Incomplete daily coverage:** Several hours of data were missing on some days.
+* **Uncertain missingness mechanism:** The available information was insufficient to confidently determine why the gaps occurred.
+* **Device mismatch:** SocialBit was not specifically designed for Parkinson’s monitoring.
+* **No clinical ground truth:** There were no validated fatigue scores, symptom scales, or clinical measurements to compare against the wearable data.
+* **Indirect measurements:** Heart rate, movement, and social interaction estimates cannot independently establish fatigue, symptom severity, or conversational effort.
+* **Potential bias from missing observations:** The available data may not represent the participant's complete daily routine.
 
-Because of that, this project is more **exploratory than definitive**.
-
----
-
-## Where This Could Go Next
-
-If I were to take this further, I’d want to add:
-
-* Self-reported fatigue or energy levels
-* Medication timing (if applicable)
-* Speech or voice data
-* More participants
-
-That would make the conclusions much stronger.
+Because of these limitations, the project is best considered **exploratory rather than confirmatory**.
 
 ---
 
-## Final Thought
+## What I Learned
 
-At the end of the day, this project isn’t about diagnosing Parkinson’s.
+One of the most important lessons from the project was that **data analysis does not begin with finding a pattern — it begins with determining whether the data can support the pattern you want to measure**.
 
-It’s about using data to better understand:
+The project raised practical questions that are easy to overlook in controlled datasets:
 
-> **how the disease might shape everyday social life**
+* Can a period of missing sensor data be distinguished from inactivity?
+* Is missing data random or systematic?
+* How much confidence should be placed in a pattern when entire portions of the day are absent?
+* Can a device designed for one population or purpose be meaningfully applied to another?
+* How far can indirect physiological measurements be interpreted?
+* When is the evidence too incomplete to justify a conclusion?
 
-Even if the signals are imperfect, there’s still value in trying to capture that real-world experience.
+In this case, I found that some of the original hypotheses could **not be evaluated reliably from the available data**.
+
+Rather than filling the missing periods or treating them as zero activity, I chose to preserve the missingness and treat it as a limitation of the dataset.
 
 ---
+
+## What a Stronger Follow-Up Study Would Require
+
+A stronger version of this project would include:
+
+* Verified continuous wear time
+* Device removal and charging logs
+* Multiple participants
+* Medication timing
+* Self-reported fatigue and energy measurements
+* Clinical symptom assessments
+* A device validated for Parkinson’s-specific measurements
+* A predefined strategy for identifying and handling missing data
+
+These additions would make it easier to distinguish actual behavioral patterns from artifacts caused by the measurement process.
+
+---
+
+## Current Status
+
+* **Baseline data:** Complete
+* **Parkinson’s data collection:** Completed
+* **Exploratory analysis:** Completed
+* **Final clinical conclusions:** Not supported by the available data
+
+The project did **not** produce a reliable clinical finding about Parkinson’s disease or social fatigue.
+
+Instead, it demonstrated the practical challenges of taking real-world wearable data and attempting to translate it into behavioral conclusions.
+
+---
+
+## Final Takeaway
+
+This project started with a question about Parkinson’s disease and everyday social interaction.
+
+It ultimately taught me a broader lesson about working with real-world data:
+
+> **Before asking what the data says, you have to establish whether the data is complete and reliable enough to say anything at all.**
+
+The incomplete data and device limitations prevented me from making the conclusions I originally hoped to make. But identifying those limitations — and choosing not to overstate what the data showed — became one of the most important parts of the project.
+
+The project gave me hands-on experience with **wearable sensor data, exploratory analysis, data-quality investigation, missing-data problems, measurement validity, and responsible interpretation of imperfect real-world datasets**.
