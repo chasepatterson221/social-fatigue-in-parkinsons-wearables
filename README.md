@@ -8,7 +8,7 @@ Instead of focusing directly on clinical symptoms such as tremor or rigidity, I 
 
 > **What does social engagement actually look like throughout the day for someone with Parkinson’s disease?**
 
-I used data from a **SocialBit wearable**, which estimates social interactions while also collecting signals such as heart rate, movement, and activity state.
+This project was conducted in collaboration with **SocialBit**, working alongside one of the company's co-owners and a software engineer. I used data from a **SocialBit wearable**, which estimates social interactions while also collecting signals such as heart rate, movement, and activity state.
 
 The original goal was to determine whether social interactions appeared **continuous or fragmented throughout the day**, and whether those patterns were associated with changes in activity or physiological measurements.
 
